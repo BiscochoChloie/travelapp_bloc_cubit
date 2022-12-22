@@ -10,7 +10,11 @@ class WelcomePage extends StatefulWidget {
 }
 
 class _WelcomePageState extends State<WelcomePage> {
-  List welcomeimages = [];
+  List welcomeimages = [
+    'welcome_1.png',
+    'welcome_2.png',
+    'welcome_3.png',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +27,8 @@ class _WelcomePageState extends State<WelcomePage> {
                   height: double.maxFinite,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage(welcomeimages[index]))));
+                          image: AssetImage(
+                              "assets/images/" + welcomeimages[index]))));
             }));
   }
 }
