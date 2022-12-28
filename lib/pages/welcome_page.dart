@@ -9,11 +9,7 @@ class WelcomePage extends StatefulWidget {
 }
 
 class _WelcomePageState extends State<WelcomePage> {
-  List welcomeimages = [
-    "welcome_2.gif",
-    "welcome_2.gif",
-    "welcome_3.gif",
-  ];
+  List welcomeimages = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,17 +22,7 @@ class _WelcomePageState extends State<WelcomePage> {
                   height: double.maxFinite,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage(
-                              "assets/images/" + welcomeimages[index]),
-                          fit: BoxFit.scaleDown)
-                          ),
-                          child: Container(margin: EdgeInsets.only(top: 150, left: 20, right: 20
-                          ),
-                          child: Row(children: [Column(children: [
-                            BoldTextWidget(text: "")
-                          ],)]),
-                          ),
-                          );
+                          image: AssetImage(welcomeimages[index]))));
             }));
   }
 }
