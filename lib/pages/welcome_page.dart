@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:travelapp_bloc_cubit/widget/text_widget.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
@@ -10,7 +9,11 @@ class WelcomePage extends StatefulWidget {
 }
 
 class _WelcomePageState extends State<WelcomePage> {
-  List welcomeimages = [];
+  List welcomeimages = [
+    "welcome_2.gif",
+    "welcome_2.gif",
+    "welcome_3.gif",
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +26,17 @@ class _WelcomePageState extends State<WelcomePage> {
                   height: double.maxFinite,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage(welcomeimages[index]))));
+                          image: AssetImage(
+                              "assets/images/" + welcomeimages[index]),
+                          fit: BoxFit.scaleDown)
+                          ),
+                          child: Container(margin: EdgeInsets.only(top: 150, left: 20, right: 20
+                          ),
+                          child: Row(children: [Column(children: [
+                            BoldTextWidget(text: "")
+                          ],)]),
+                          ),
+                          );
             }));
   }
 }
