@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class BoldTextWidget extends StatelessWidget {
-  double size;
+  final double size;
   final String text;
   final Color color;
 
-  BoldTextWidget(
+  const BoldTextWidget(
       {Key? key, this.size = 30, required this.text, this.color = Colors.black})
       : super(key: key);
 
@@ -13,7 +13,26 @@ class BoldTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: TextStyle(color: color, fontSize: size,fontWeight: FontWeight.bold),
+      style:
+          TextStyle(color: color, fontSize: size, fontWeight: FontWeight.bold),
+    );
+  }
+}
+
+class MediumTextWidget extends StatelessWidget {
+  final double size;
+  final String text;
+  final Color color;
+
+  const MediumTextWidget(
+      {Key? key, this.size = 16, required this.text, this.color = Colors.black})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: TextStyle(color: color, fontSize: size),
     );
   }
 }

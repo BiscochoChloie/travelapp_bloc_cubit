@@ -9,7 +9,11 @@ class WelcomePage extends StatefulWidget {
 }
 
 class _WelcomePageState extends State<WelcomePage> {
-  List welcomeimages = [];
+  List welcomeimages = [
+    'welcome_1.png',
+    'welcome_2.png',
+    'welcome_3.png',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,11 +22,33 @@ class _WelcomePageState extends State<WelcomePage> {
             itemCount: welcomeimages.length,
             itemBuilder: (context, index) {
               return Container(
-                  width: double.maxFinite,
-                  height: double.maxFinite,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage(welcomeimages[index]))));
+                width: double.maxFinite,
+                height: double.maxFinite,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image:
+                            AssetImage("assets/images/" + welcomeimages[index]),
+                        fit: BoxFit.scaleDown)),
+                child: Container(
+                  margin: EdgeInsets.only(top: 150, left: 20, right: 20),
+                  child: Row(children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        MediumTextWidget(text: "HIr"),
+                        MediumTextWidget(
+                          text: "Country",
+                          size: 30,
+                        ),
+                        SizedBox(
+                          width: 250,
+                          child: MediumTextWidget(text: "fsdgdfhgf"),
+                        )
+                      ],
+                    )
+                  ]),
+                ),
+              );
             }));
   }
 }
