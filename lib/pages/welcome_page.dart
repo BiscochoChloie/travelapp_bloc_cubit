@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travelapp_bloc_cubit/widget/button_widget.dart';
 import 'package:travelapp_bloc_cubit/widget/text_widget.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -30,23 +31,44 @@ class _WelcomePageState extends State<WelcomePage> {
                             AssetImage("assets/images/" + welcomeimages[index]),
                         fit: BoxFit.scaleDown)),
                 child: Container(
-                  margin: EdgeInsets.only(top: 150, left: 20, right: 20),
-                  child: Row(children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        MediumTextWidget(text: "HIr"),
-                        MediumTextWidget(
-                          text: "Country",
-                          size: 30,
+                  margin: const EdgeInsets.only(top: 150, left: 20, right: 20),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const MediumTextWidget(text: "HIr"),
+                            const MediumTextWidget(
+                              text: "Country",
+                              size: 30,
+                            ),
+                            const SizedBox(height: 5),
+                            const SizedBox(
+                              width: 250,
+                              child: MediumTextWidget(text: "fsdgdfhgf"),
+                            ),
+                            const SizedBox(height: 20),
+                            ButtonWidget(
+                              width: 100,
+                            )
+                          ],
                         ),
-                        SizedBox(
-                          width: 250,
-                          child: MediumTextWidget(text: "fsdgdfhgf"),
+                        Column(
+                          children: List.generate(3, (indexDots) {
+                            return Container(
+                              margin: const EdgeInsets.only(bottom: 2),
+                              width: 8,
+                              height: index == indexDots ? 25 : 8,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8),
+                                  color: index == indexDots
+                                      ? Colors.purple
+                                      : Colors.purple.withOpacity(0.3)),
+                            );
+                          }),
                         )
-                      ],
-                    )
-                  ]),
+                      ]),
                 ),
               );
             }));
