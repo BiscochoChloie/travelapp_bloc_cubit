@@ -11,7 +11,7 @@ class ButtonWidget extends StatelessWidget {
       width: width,
       height: 40,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10), color: Colors.purple),
+          borderRadius: BorderRadius.circular(10), color: Colors.deepPurple),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [
