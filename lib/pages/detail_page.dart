@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:travelapp_bloc_cubit/widget/square_button.dart';
 import 'package:travelapp_bloc_cubit/widget/text_widget.dart';
 
 class DetailPage extends StatefulWidget {
@@ -11,6 +12,8 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
+  int gottenStars = 3;
+  int selectedIndex = -1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,7 +95,10 @@ class _DetailPageState extends State<DetailPage> {
                               children: List.generate(5, (index) {
                                 return Icon(
                                   Icons.star,
-                                  color: Colors.orange[500],
+                                  size: 20,
+                                  color: index < gottenStars
+                                      ? Colors.orange[500]
+                                      : Colors.grey,
                                 );
                               }),
                             ),
@@ -102,6 +108,28 @@ class _DetailPageState extends State<DetailPage> {
                               color: Colors.deepPurple,
                             )
                           ],
+                        ),
+                        SizedBox(height: 25),
+                        BoldTextWidget(
+                          text: "People",
+                          size: 20,
+                        ),
+                        SizedBox(height: 5),
+                        MediumTextWidget(
+                          text: "Number of people in your group",
+                          color: Colors.grey,
+                        ),
+                        SizedBox(height: 10),
+                        Wrap(
+                          children: List.generate(5, (index) {
+                            return InkWell(
+                              onTap: () {},
+                              child: Container(
+                                  margin: EdgeInsets.only(right: 10),
+                                  child: SquareButton(
+                                      text: (index + 1).toString())),
+                            );
+                          }),
                         )
                       ],
                     ),
